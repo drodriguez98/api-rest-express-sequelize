@@ -1,0 +1,19 @@
+### Obtener todos los proyectos
+
+GET http://localhost:3000/projects
+
+### Obtener todas las tareas
+
+GET http://localhost:3000/tasks
+
+### Crear nuevo proyecto
+
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+    "name": "project 3",
+    "priority": 9,
+    "description": "description of project 3"
+
+}
