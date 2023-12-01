@@ -2,6 +2,8 @@ import { DataTypes } from "sequelize";
 
 import { sequelize } from "../database/database.js";
 
+// Sequelize creará la tabla en la base de datos automáticamente.
+
 export const Task = sequelize.define(
 
   "task",
@@ -28,5 +30,5 @@ export const Task = sequelize.define(
   },
 
   { timestamps: false, }
-  
+
 );

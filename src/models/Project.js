@@ -3,6 +3,8 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
 import { Task } from "./Task.js";
 
+// Sequelize creará la tabla en la base de datos automáticamente.
+
 export const Project = sequelize.define(
 
   "projects",
