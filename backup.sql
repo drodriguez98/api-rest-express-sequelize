@@ -43,8 +43,8 @@ INSERT INTO tasks(name, done, projectId)
     VALUES('Design the UI', false, 2);
 
 CREATE USER projects WITH PASSWORD 'abc123.';
-
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO projects;
 GRANT ALL PRIVILEGES ON DATABASE projectsdb TO projects;
 GRANT ALL PRIVILEGES ON TABLE projects TO projects;
-
 GRANT ALL PRIVILEGES ON TABLE tasks TO projects;
+GRANT USAGE ON SCHEMA public TO PROJECTS;
