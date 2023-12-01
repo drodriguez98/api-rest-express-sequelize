@@ -10,6 +10,10 @@ GET http://localhost:4000/api/tasks/
 
 GET http://localhost:4000/api/projects/7
 
+### Obtener tareas de un proyecto
+
+GET http://localhost:4000/api/projects/4/tasks
+
 ### Obtener una tarea
 
 GET http://localhost:4000/api/tasks/2
@@ -69,7 +73,3 @@ DELETE http://localhost:4000/api/projects/9
 ### Borrar una tarea
 
 DELETE http://localhost:4000/api/tasks/2
-
-### Obtener tareas de un proyecto
-
-GET http://localhost:4000/api/projects/4/tasks
