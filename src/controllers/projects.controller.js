@@ -13,6 +13,20 @@ export async function getProjects(req, res) {
 
 }
 
+export async function getProject(req, res) {
+
+  const { id } = req.params;
+
+  try {
+
+    const project = await Project.findOne({ where: { id } });
+
+    res.json(project);
+
+  } catch (error) { res.status(500).json({ message: error.message }); }
+  
+}
+
 export async function createProject(req, res) {
 
   const { name, priority, description, deliveryDate } = req.body;
@@ -20,16 +34,10 @@ export async function createProject(req, res) {
   try {
 
     let newProject = await Project.create(
-
-      {
-        name,
-        priority,
-        description,
-        deliveryDate: new Date(deliveryDate).getTime(),
-      },
-
-      { fields: ["name", "priority", "description", "deliverydate"], }
-
+      
+      { name, priority, description, deliveryDate: new Date(deliveryDate).getTime() }, 
+      { fields: ["name", "priority", "description", "deliverydate"] } 
+      
     );
     
     return res.json(newProject);
@@ -37,20 +45,6 @@ export async function createProject(req, res) {
   } catch (error) { res.status(500).json({ message: error.message, }); }
 
   res.json("received");
-
-}
-
-export async function getProject(req, res) {
-
-  const { id } = req.params;
-
-  try {
-
-    const project = await Project.findOne({ where: { id, }, });
-
-    res.json(project);
-
-  } catch (error) { res.status(500).json({ message: error.message, }); }
 
 }
 
@@ -103,5 +97,5 @@ export async function getProjectTasks(req, res) {
     res.json(tasks);
 
   } catch (e) { return res.status(500).json({ message: e.message }); }
-
+  
 }
